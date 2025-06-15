@@ -7,4 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/swapnilvaidya/swapnilBVaidya/microservices-template-springboot/config-repo
+          uri: https://github.com/SwapnilBVaidya/microservices-template-springboot
+          search-paths: config-repo
+          default-label: master
