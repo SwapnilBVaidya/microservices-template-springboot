@@ -1,13 +1,14 @@
-package com.swapnil.order.controller;
+package com.swapnil.order;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class OrderResponse {
+public class OrderDto {
     private Long id;
     private Long userId;
     private String status;
     private LocalDateTime createdAt;
-    private OrderItemResponse items;
+    private List<OrderItemDto> items;
 
     public Long getId() {
         return id;
@@ -41,11 +42,11 @@ public class OrderResponse {
         this.createdAt = createdAt;
     }
 
-    public OrderItemResponse getItems() {
+    public List<OrderItemDto> getItems() {
         return items;
     }
 
-    public void setItems(OrderItemResponse items) {
+    public void setItems(List<OrderItemDto> items) {
         this.items = items;
     }
 }

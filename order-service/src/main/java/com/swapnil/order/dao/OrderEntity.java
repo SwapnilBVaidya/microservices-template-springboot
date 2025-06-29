@@ -1,13 +1,28 @@
-package com.swapnil.order.controller;
+package com.swapnil.order.dao;
+
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-public class OrderResponse {
+@Entity
+@Table(name = "orders", schema = "order_service")
+public class OrderEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "user_id")
     private Long userId;
+
     private String status;
-    private LocalDateTime createdAt;
-    private OrderItemResponse items;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderItemEntity> items;
 
     public Long getId() {
         return id;
@@ -41,11 +56,11 @@ public class OrderResponse {
         this.createdAt = createdAt;
     }
 
-    public OrderItemResponse getItems() {
+    public List<OrderItemEntity> getItems() {
         return items;
     }
 
-    public void setItems(OrderItemResponse items) {
+    public void setItems(List<OrderItemEntity> items) {
         this.items = items;
     }
 }

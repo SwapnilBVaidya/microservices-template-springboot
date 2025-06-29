@@ -3,3 +3,7 @@ spring:
     name: product-service
   config:
     import: configserver:http://localhost:8888
+
+user:
+  service:
+    url: http://user-service

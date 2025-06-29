@@ -1,13 +1,24 @@
-package com.swapnil.user.controller;
+package com.swapnil.user.dao;
 
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-public class UserResponse {
+@Entity
+@Table(name = "users", schema = "user_service")
+public class UserEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
+
+    @Column(unique = true)
     private String email;
-    private LocalDateTime createdAt;
+
+    @Column(name = "created_at", updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     public Long getId() {
         return id;

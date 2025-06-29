@@ -1,9 +1,8 @@
-package com.swapnil.user.controller;
-
+package com.swapnil.user;
 
 import java.time.LocalDateTime;
 
-public class UserResponse {
+public class UserDto {
     private Long id;
     private String name;
     private String email;

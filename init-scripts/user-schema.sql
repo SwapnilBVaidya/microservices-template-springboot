@@ -1,0 +1,8 @@
+CREATE SCHEMA IF NOT EXISTS user_service;
+
+CREATE TABLE IF NOT EXISTS user_service.users (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
